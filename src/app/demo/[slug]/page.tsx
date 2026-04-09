@@ -6,15 +6,16 @@ import type { DemoContent } from '@/templates/local-service'
 import DemoBanner from '@/components/DemoBanner'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function DemoPage({ params }: Props) {
+  const { slug } = await params
   const db = getDB()
 
   const demo = await db
     .prepare(`SELECT content_json, lead_id FROM demos WHERE slug = ?`)
-    .bind(params.slug)
+    .bind(slug)
     .first<{ content_json: string; lead_id: string }>()
 
   if (!demo) notFound()
