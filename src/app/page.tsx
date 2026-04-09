@@ -136,7 +136,7 @@ export default function Home() {
               {[
                 { step: '01', title: 'Tell us about your business', desc: 'Takes 60 seconds. Name, industry, and email.' },
                 { step: '02', title: 'We build your demo site', desc: 'A personalised website goes live instantly with your business details.' },
-                { step: '03', title: 'Review and decide', desc: 'Love it? We'll build the real version. No? Walk away — no charge.' },
+                { step: '03', title: 'Review and decide', desc: "Love it? We'll build the real version. No? Walk away — no charge." },
               ].map((item) => (
                 <div key={item.step} className="bg-white rounded-2xl p-8 shadow-sm">
                   <p className="text-brand-500 font-bold text-sm mb-4">{item.step}</p>
