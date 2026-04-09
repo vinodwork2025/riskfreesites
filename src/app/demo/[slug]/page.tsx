@@ -1,5 +1,3 @@
-export const runtime = 'edge'
-
 import { notFound } from 'next/navigation'
 import { getDB } from '@/lib/db'
 import type { DemoContent } from '@/templates/local-service'
@@ -11,7 +9,7 @@ interface Props {
 
 export default async function DemoPage({ params }: Props) {
   const { slug } = await params
-  const db = getDB()
+  const db = await getDB()
 
   const demo = await db
     .prepare(`SELECT content_json, lead_id FROM demos WHERE slug = ?`)

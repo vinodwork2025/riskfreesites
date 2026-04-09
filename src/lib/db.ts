@@ -1,4 +1,4 @@
-import { getRequestContext } from '@cloudflare/next-on-pages'
+import { getCloudflareContext } from '@opennextjs/cloudflare'
 
 export interface Lead {
   id: string
@@ -13,7 +13,7 @@ export interface Lead {
   created_at: string
 }
 
-export function getDB(): D1Database {
-  const { env } = getRequestContext()
+export async function getDB(): Promise<D1Database> {
+  const { env } = await getCloudflareContext({ async: true })
   return (env as unknown as { DB: D1Database }).DB
 }

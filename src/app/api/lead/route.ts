@@ -1,5 +1,3 @@
-export const runtime = 'edge'
-
 import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db'
 import { createId } from '@/lib/slug'
@@ -14,7 +12,7 @@ export async function POST(req: NextRequest) {
     }
 
     const id = createId()
-    const db = getDB()
+    const db = await getDB()
 
     await db
       .prepare(

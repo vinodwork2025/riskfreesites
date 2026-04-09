@@ -1,5 +1,3 @@
-export const runtime = 'edge'
-
 import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db'
 import { createSlug } from '@/lib/slug'
@@ -20,7 +18,7 @@ export async function POST(req: NextRequest) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
     const demoUrl = `${baseUrl}/demo/${slug}`
 
-    const db = getDB()
+    const db = await getDB()
 
     // Store demo content alongside the lead
     await db
