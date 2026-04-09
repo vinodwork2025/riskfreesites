@@ -43,6 +43,12 @@ export default function LoadingScreen({ onComplete, demoReady }: Props) {
     }
   }, [demoReady, elapsed, onComplete])
 
+  // Hard timeout — call complete after 30s regardless
+  useEffect(() => {
+    const id = setTimeout(onComplete, 30000)
+    return () => clearTimeout(id)
+  }, [onComplete])
+
   return (
     <div className="w-full max-w-md text-center animate-[fadeIn_0.5s_ease-out]">
       {/* Animated icon */}
