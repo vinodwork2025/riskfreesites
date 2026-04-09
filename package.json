@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "pages:build": "npx opennextjs-cloudflare build",
+    "pages:build": "npx opennextjs-cloudflare build && cp .open-next/worker.js .open-next/assets/_worker.js",
     "pages:deploy": "npx wrangler pages deploy .open-next/assets",
     "db:migrate": "npx wrangler d1 execute riskfreesites-db --file=migrations/0001_init.sql",
     "db:migrate:remote": "npx wrangler d1 execute riskfreesites-db --remote --file=migrations/0001_init.sql"
