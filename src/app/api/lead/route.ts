@@ -6,7 +6,7 @@ import { createId } from '@/lib/slug'
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
+    const body = await req.json() as Record<string, string>
     const { name, business_name, email, industry, website } = body
 
     if (!name || !business_name || !email || !industry) {

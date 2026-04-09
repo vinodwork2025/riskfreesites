@@ -8,7 +8,7 @@ import { sendDemoEmail } from '@/lib/email'
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
+    const body = await req.json() as Record<string, string>
     const { lead_id, business_name, industry, city, name, email } = body
 
     if (!lead_id || !business_name || !industry) {
