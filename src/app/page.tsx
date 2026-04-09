@@ -30,7 +30,7 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-      const { id: lead_id } = await leadRes.json()
+      const { id: lead_id } = await leadRes.json() as { id: string }
 
       // Step 2: Generate demo (runs while loading screen plays)
       const demoRes = await fetch('/api/generate-demo', {
@@ -44,7 +44,7 @@ export default function Home() {
           email: data.email,
         }),
       })
-      const { demo_url } = await demoRes.json()
+      const { demo_url } = await demoRes.json() as { demo_url: string }
       setDemoUrl(demo_url)
     } catch {
       // Even on error, keep loading so UX isn't broken
