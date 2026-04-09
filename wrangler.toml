@@ -6,4 +6,4 @@ pages_build_output_dir = ".vercel/output/static"
 [[d1_databases]]
 binding = "DB"
 database_name = "riskfreesites-db"
-database_id = "YOUR_D1_DATABASE_ID"  # Replace after: wrangler d1 create riskfreesites-db
+database_id = "9d0c3a40-f948-4115-b534-4f6c408810fe"
